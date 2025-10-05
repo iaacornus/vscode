@@ -816,8 +816,6 @@ export abstract class AbstractTaskService extends Disposable implements ITaskSer
 							: `\`${message}\`\n\`\`\`json${errorMessage}\`\`\``;
 
 
-						const defaultAgent = this._chatAgentService.getDefaultAgent(ChatAgentLocation.Chat);
-						const providerName = defaultAgent?.fullName;
 						if (providerName) {
 							actions.push({
 								label: nls.localize('troubleshootWithChat', "Fix with {0}", providerName),
@@ -837,11 +835,6 @@ export abstract class AbstractTaskService extends Disposable implements ITaskSer
 						this._outputService.showChannel(this._outputChannel.id, true);
 					}
 				});
-				if (chatEnabled && actions.length > 1) {
-					this._notificationService.prompt(Severity.Warning, nls.localize('taskServiceOutputPromptChat', 'There are task errors. Use chat to fix them or view the output for details.'), actions);
-				} else {
-					this._notificationService.prompt(Severity.Warning, nls.localize('taskServiceOutputPrompt', 'There are task errors. See the output for details.'), actions);
-				}
 			}
 		}
 	}

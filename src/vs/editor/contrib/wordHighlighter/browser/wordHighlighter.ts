@@ -604,10 +604,6 @@ class WordHighlighter {
 			if (!diffModel) {
 				continue;
 			}
-			if (model === diffModel.modified) { // embedded inline chat diff would pass this, allowing highlights
-				//? currentModels.push(diffModel.original);
-				currentModels.push(diffModel.modified);
-			}
 		}
 		if (currentModels.length) { // no matching editors have been found
 			return currentModels;

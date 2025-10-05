@@ -22,5 +22,4 @@ export interface IDefaultAccount {
 		readonly completions: number;
 	};
 	readonly limited_user_reset_date?: string;
-	readonly chat_agent_enabled?: boolean;
 }

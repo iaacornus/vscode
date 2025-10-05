@@ -169,15 +169,6 @@ export interface ILocalizationContribution {
 	minimalTranslations?: { [key: string]: string };
 }
 
-export interface IChatParticipantContribution {
-	id: string;
-	name: string;
-	fullName: string;
-	description?: string;
-	isDefault?: boolean;
-	commands?: { name: string }[];
-}
-
 export interface IToolContribution {
 	name: string;
 	displayName: string;
@@ -224,7 +215,6 @@ export interface IExtensionContributions {
 	readonly notebooks?: INotebookEntry[];
 	readonly notebookRenderer?: INotebookRendererContribution[];
 	readonly debugVisualizers?: IDebugVisualizationContribution[];
-	readonly chatParticipants?: ReadonlyArray<IChatParticipantContribution>;
 	readonly languageModelTools?: ReadonlyArray<IToolContribution>;
 	readonly languageModelToolSets?: ReadonlyArray<IToolSetContribution>;
 	readonly mcpServerDefinitionProviders?: ReadonlyArray<IMcpCollectionContribution>;
@@ -263,7 +253,6 @@ export interface IExtensionIdentifier {
 export const EXTENSION_CATEGORIES = [
 	'AI',
 	'Azure',
-	'Chat',
 	'Data Science',
 	'Debuggers',
 	'Extension Packs',

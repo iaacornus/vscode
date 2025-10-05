@@ -31,23 +31,6 @@ const enum DefaultAccountStatus {
 
 const CONTEXT_DEFAULT_ACCOUNT_STATE = new RawContextKey<string>('defaultAccountStatus', DefaultAccountStatus.Uninitialized);
 
-interface IChatEntitlementsResponse {
-	readonly access_type_sku: string;
-	readonly assigned_date: string;
-	readonly can_signup_for_limited: boolean;
-	readonly chat_enabled: boolean;
-	readonly analytics_tracking_id: string;
-	readonly limited_user_quotas?: {
-		readonly chat: number;
-		readonly completions: number;
-	};
-	readonly monthly_quotas?: {
-		readonly chat: number;
-		readonly completions: number;
-	};
-	readonly limited_user_reset_date: string;
-}
-
 interface ITokenEntitlementsResponse {
 	token: string;
 }

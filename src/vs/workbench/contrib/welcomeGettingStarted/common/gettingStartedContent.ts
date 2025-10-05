@@ -19,17 +19,6 @@ interface IGettingStartedContentProvider {
 	(): string;
 }
 
-const defaultChat = {
-	documentationUrl: product.defaultChatAgent?.documentationUrl ?? '',
-	manageSettingsUrl: product.defaultChatAgent?.manageSettingsUrl ?? '',
-	provider: product.defaultChatAgent?.provider ?? { default: { name: '' } },
-	publicCodeMatchesUrl: product.defaultChatAgent?.publicCodeMatchesUrl ?? '',
-	termsStatementUrl: product.defaultChatAgent?.termsStatementUrl ?? '',
-	privacyStatementUrl: product.defaultChatAgent?.privacyStatementUrl ?? ''
-};
-
-export const copilotSettingsMessage = localize({ key: 'settings', comment: ['{Locked="["}', '{Locked="]({0})"}', '{Locked="]({1})"}'] }, "{0} Copilot may show [public code]({1}) suggestions and use your data to improve the product. You can change these [settings]({2}) anytime.", defaultChat.provider.default.name, defaultChat.publicCodeMatchesUrl, defaultChat.manageSettingsUrl);
-
 class GettingStartedContentProviderRegistry {
 
 	private readonly providers = new Map<string, IGettingStartedContentProvider>();
@@ -208,18 +197,7 @@ export const startEntries: GettingStartedStartEntryContent = [
 			type: 'startEntry',
 			command: 'command:workbench.action.remote.showWebStartEntryActions',
 		}
-	},
-	{
-		id: 'topLevelNewWorkspaceChat',
-		title: localize('gettingStarted.newWorkspaceChat.title', "Generate New Workspace..."),
-		description: localize('gettingStarted.newWorkspaceChat.description', "Chat to create a new workspace"),
-		icon: Codicon.chatSparkle,
-		when: '!isWeb && !chatSetupHidden',
-		content: {
-			type: 'startEntry',
-			command: 'command:welcome.newWorkspaceChat',
-		}
-	},
+	}
 ];
 
 const Button = (title: string, href: string) => `[${title}](${href})`;

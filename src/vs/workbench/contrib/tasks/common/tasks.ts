@@ -1238,7 +1238,6 @@ export const enum TaskRunSource {
 	FolderOpen,
 	ConfigurationChange,
 	Reconnect,
-	ChatAgent
 }
 
 export namespace TaskEvent {

@@ -74,8 +74,6 @@ export function isAiEdit(source: TextModelEditSource): boolean {
 	switch (source.metadata.source) {
 		case 'inlineCompletionAccept':
 		case 'inlineCompletionPartialAccept':
-		case 'inlineChat.applyEdits':
-		case 'Chat.applyEdits':
 			return true;
 	}
 	return false;
@@ -99,31 +97,6 @@ export const EditSources = {
 
 	rename: () => createEditSource({ source: 'rename' } as const),
 
-	chatApplyEdits(data: {
-		modelId: string | undefined;
-		sessionId: string | undefined;
-		requestId: string | undefined;
-		languageId: string;
-		mode: string | undefined;
-		extensionId: VersionedExtensionId | undefined;
-		codeBlockSuggestionId: EditSuggestionId | undefined;
-	}) {
-		return createEditSource({
-			source: 'Chat.applyEdits',
-			$modelId: avoidPathRedaction(data.modelId),
-			$extensionId: data.extensionId?.extensionId,
-			$extensionVersion: data.extensionId?.version,
-			$$languageId: data.languageId,
-			$$sessionId: data.sessionId,
-			$$requestId: data.requestId,
-			$$mode: data.mode,
-			$$codeBlockSuggestionId: data.codeBlockSuggestionId,
-		} as const);
-	},
-
-	chatUndoEdits: () => createEditSource({ source: 'Chat.undoEdits' } as const),
-	chatReset: () => createEditSource({ source: 'Chat.reset' } as const),
-
 	inlineCompletionAccept(data: { nes: boolean; requestUuid: string; languageId: string; providerId?: ProviderId }) {
 		return createEditSource({
 			source: 'inlineCompletionAccept',
@@ -141,17 +114,6 @@ export const EditSources = {
 			$nes: data.nes,
 			...toProperties(data.providerId),
 			$$requestUuid: data.requestUuid,
-			$$languageId: data.languageId,
-		} as const);
-	},
-
-	inlineChatApplyEdit(data: { modelId: string | undefined; requestId: string | undefined; languageId: string; extensionId: VersionedExtensionId | undefined }) {
-		return createEditSource({
-			source: 'inlineChat.applyEdits',
-			$modelId: avoidPathRedaction(data.modelId),
-			$extensionId: data.extensionId?.extensionId,
-			$extensionVersion: data.extensionId?.version,
-			$$requestId: data.requestId,
 			$$languageId: data.languageId,
 		} as const);
 	},

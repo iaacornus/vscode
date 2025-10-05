@@ -37,14 +37,6 @@ export interface IFeaturedExtension {
 	readonly imagePath: string;
 }
 
-export interface IChatSessionRecommendation {
-	readonly extensionId: string;
-	readonly extensionName: string;
-	readonly displayName: string;
-	readonly name: string;
-	readonly description: string;
-}
-
 export type ConfigurationSyncStore = {
 	url: string;
 	insidersUrl: string;
@@ -215,7 +207,6 @@ export interface IProductConfiguration {
 			readonly scopes: string[];
 		};
 		readonly tokenEntitlementUrl: string;
-		readonly chatEntitlementUrl: string;
 		readonly mcpRegistryDataUrl: string;
 	};
 
@@ -229,9 +220,6 @@ export interface IProductConfiguration {
 	readonly commonlyUsedSettings?: string[];
 	readonly aiGeneratedWorkspaceTrust?: IAiGeneratedWorkspaceTrust;
 
-	readonly defaultChatAgent?: IDefaultChatAgent;
-	readonly chatParticipantRegistry?: string;
-	readonly chatSessionRecommendations?: IChatSessionRecommendation[];
 	readonly emergencyAlertUrl?: string;
 
 	readonly remoteDefaultExtensionsIfInstalledLocally?: string[];
@@ -340,47 +328,4 @@ export interface IAiGeneratedWorkspaceTrust {
 	readonly trustOption: string;
 	readonly dontTrustOption: string;
 	readonly startupTrustRequestLearnMore: string;
-}
-
-export interface IDefaultChatAgent {
-	readonly extensionId: string;
-	readonly chatExtensionId: string;
-
-	readonly documentationUrl: string;
-	readonly skusDocumentationUrl: string;
-	readonly publicCodeMatchesUrl: string;
-	readonly manageSettingsUrl: string;
-	readonly managePlanUrl: string;
-	readonly manageOverageUrl: string;
-	readonly upgradePlanUrl: string;
-	readonly signUpUrl: string;
-	readonly termsStatementUrl: string;
-	readonly privacyStatementUrl: string;
-
-	readonly provider: {
-		default: { id: string; name: string };
-		enterprise: { id: string; name: string };
-		google: { id: string; name: string };
-		apple: { id: string; name: string };
-	};
-
-	readonly providerUriSetting: string;
-	readonly providerScopes: string[][];
-
-	readonly entitlementUrl: string;
-	readonly entitlementSignupLimitedUrl: string;
-
-	readonly chatQuotaExceededContext: string;
-	readonly completionsQuotaExceededContext: string;
-
-	readonly walkthroughCommand: string;
-	readonly completionsMenuCommand: string;
-	readonly completionsRefreshTokenCommand: string;
-	readonly chatRefreshTokenCommand: string;
-	readonly generateCommitMessageCommand: string;
-	readonly resolveMergeConflictsCommand: string;
-
-	readonly completionsAdvancedSetting: string;
-	readonly completionsEnablementSetting: string;
-	readonly nextEditSuggestionsSetting: string;
 }

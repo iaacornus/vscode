@@ -24,17 +24,6 @@ export interface NativeParsedArgs {
 		};
 	};
 	'serve-web'?: INativeCliOptions;
-	chat?: {
-		_: string[];
-		'add-file'?: string[];
-		mode?: string;
-		maximize?: boolean;
-		'reuse-window'?: boolean;
-		'new-window'?: boolean;
-		profile?: string;
-		help?: boolean;
-	};
-
 	// arguments
 	_: string[];
 	'folder-uri'?: string[]; // undefined or array of 1 or more

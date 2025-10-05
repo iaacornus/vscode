@@ -84,8 +84,7 @@ export interface WebviewInitInfo {
 export const enum WebviewContentPurpose {
 	NotebookRenderer = 'notebookRenderer',
 	CustomEditor = 'customEditor',
-	WebviewView = 'webviewView',
-	ChatOutputItem = 'chatOutputItem',
+	WebviewView = 'webviewView'
 }
 
 export type WebviewStyles = { readonly [key: string]: string | number };
