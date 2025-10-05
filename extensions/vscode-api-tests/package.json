@@ -7,12 +7,9 @@
   "enabledApiProposals": [
     "activeComment",
     "authSession",
-    "chatParticipantPrivate",
-    "chatProvider",
     "contribStatusBarItems",
     "contribViewsRemote",
     "customEditorMove",
-    "defaultChatParticipant",
     "diffCommand",
     "documentFiltersExclusive",
     "editorInsets",
@@ -61,35 +58,6 @@
   },
   "icon": "media/icon.png",
   "contributes": {
-    "languageModelChatProviders": [
-      {
-        "vendor": "test-lm-vendor",
-        "displayName": "Test LM Vendor"
-      }
-    ],
-    "chatParticipants": [
-      {
-        "id": "api-test.participant",
-        "name": "participant",
-        "description": "test",
-        "isDefault": true,
-        "commands": [
-          {
-            "name": "hello",
-            "description": "Hello"
-          }
-        ],
-        "modes": [
-          "agent", "ask", "edit"
-        ]
-      },
-      {
-        "id": "api-test.participant2",
-        "name": "participant2",
-        "description": "test",
-        "commands": []
-      }
-    ],
     "languageModelTools": [
 			{
 				"name": "requires_confirmation_tool",

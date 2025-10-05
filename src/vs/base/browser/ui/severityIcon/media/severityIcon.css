@@ -8,9 +8,6 @@
 .text-search-provider-messages .providerMessage .codicon.codicon-error,
 .extensions-viewlet > .extensions .codicon.codicon-error,
 .extension-editor .codicon.codicon-error,
-.chat-attached-context-attachment .codicon.codicon-error {
-	color: var(--vscode-problemsErrorIcon-foreground);
-}
 
 .monaco-editor .zone-widget .codicon.codicon-warning,
 .markers-panel .marker-icon.warning, .markers-panel .marker-icon .codicon.codicon-warning,

@@ -21,7 +21,6 @@ import { ClientCapability, ITypeScriptServiceClient } from '../typescriptService
 import { coalesce } from '../utils/arrays';
 import { nulToken } from '../utils/cancellation';
 import FormattingOptionsManager from './fileConfigurationManager';
-import { CompositeCommand, EditorChatFollowUp } from './util/copilot';
 import { conditionalRegistration, requireSomeCapability } from './util/dependentRegistration';
 
 function toWorkspaceEdit(client: ITypeScriptServiceClient, edits: readonly Proto.FileCodeEdits[]): vscode.WorkspaceEdit {
@@ -509,7 +508,6 @@ class TypeScriptRefactorProvider implements vscode.CodeActionProvider<TsCodeActi
 		commandManager.register(new CompositeCommand());
 		commandManager.register(new SelectRefactorCommand(this.client));
 		commandManager.register(new MoveToFileRefactorCommand(this.client, didApplyRefactoringCommand));
-		commandManager.register(new EditorChatFollowUp(this.client, telemetryReporter));
 	}
 
 	public static readonly metadata: vscode.CodeActionProviderMetadata = {

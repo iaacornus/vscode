@@ -9,8 +9,6 @@ export interface IDefaultAccount {
 	readonly access_type_sku?: string;
 	readonly assigned_date?: string;
 	readonly can_signup_for_limited?: boolean;
-	readonly chat_enabled?: boolean;
-	readonly chat_preview_features_enabled?: boolean;
 	readonly mcp?: boolean;
 	readonly mcpRegistryUrl?: string;
 	readonly mcpAccess?: 'allow_all' | 'registry_only';
